@@ -10,12 +10,7 @@ export const store = new Vuex.Store({
   strict: true,
   state: {
     count: 1,
-    employees: [
-      // { id: 1, name: "Banana Skin", price: 20 },
-      // { id: 2, name: "Shiny Star", price: 50 },
-      // { id: 3, name: "Green Shells ", price: 60 },
-      // { id: 4, name: "Blue Shells", price: 70 }
-    ]
+    employees: []
   },
   getters: {
     employees: state => state.employees,

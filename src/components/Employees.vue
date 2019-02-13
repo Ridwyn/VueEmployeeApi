@@ -10,7 +10,11 @@
             <p class="card-text">Role: {{employee.role}}</p>
             <p class="card-text">Department: {{employee.department}}</p>
             <p class="card-text">id: {{employee._id}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <router-link
+              class="btn btn-primary"
+              v-bind:to="{name:
+           'ViewEmployee', params:{employee_id:employee._id}}"
+            >View Profile</router-link>
           </div>
         </div>
       </div>
@@ -27,24 +31,12 @@ import { mapState } from "vuex";
 export default {
   name: "Employees",
   data() {
-    return {
-      // employees: [],
-    };
+    return {};
   },
-  methods: {
-    // http request to Load employees from database
-    // loadEmployees() {
-    //   this.$http
-    //     .get("https://flaskemployeeapi.herokuapp.com/api/employees")
-    //     .then(response => {
-    //       response.body.forEach(element => {
-    //         this.employees.push(element);
-    //       });
-    //       console.log(response.body);
-    //       this.thestate = this.$store.getters.employees;
-    //     });
-    // },
-    ...mapActions(["increaseCount"])
+  methods: {},
+
+  mounted() {
+    this.$store.dispatch("loadEmployees");
   },
 
   //Vue life cycel methods to start when this component is created
