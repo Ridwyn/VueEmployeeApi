@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
     <h1>Home</h1>
+    <h4 class="center">Welcome to My Employee Manager App Where you manage your eomployee's profile</h4>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: "Home",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: ""
     };
   }
 };

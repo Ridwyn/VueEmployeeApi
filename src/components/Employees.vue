@@ -1,72 +1,64 @@
 <template>
-  <div>
+  <div class="container">
     <h1 class="center">Employees page</h1>
-    <ul>
-      <li class="card-panel" v-for="employee in employees">
-        <span class="id">id:{{employee._id}}</span>
-        <span class="name">firstname:
-          <strong>{{employee.firstname}}</strong>
-        </span>
-        <span class="price">lastname:
-          <strong>{{employee.lastname}}</strong>
-        </span>
-        <span class="price">department:
-          <strong>{{employee.department}}</strong>
-        </span>
-        <span class="price">role:
-          <strong>{{employee.role}}</strong>
-        </span>
-      </li>
-    </ul>
-    <a href="#" v-on:click="loadEmployees">Load Employees</a>
+    <div class="row">
+      <div class="col-sm-4" v-for="(employee,index) in employees" :key="index">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="#" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-title">Name: {{employee.firstname}} {{employee.lastname}}</p>
+            <p class="card-text">Role: {{employee.role}}</p>
+            <p class="card-text">Department: {{employee.department}}</p>
+            <p class="card-text">id: {{employee._id}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <a href="#" v-on:click="getEmployees">Load Employees</a> -->
   </div>
 </template>
 
 <script>
-import { mappedState } from "vuex";
+import { mappedActions, mapGetters, mapActions } from "vuex";
+import { mapState } from "vuex";
+
 export default {
   name: "Employees",
   data() {
     return {
-      employees: []
+      // employees: [],
     };
   },
   methods: {
-    loadEmployees() {
-      this.$http
-        .get("https://flaskemployeeapi.herokuapp.com/api/employees")
-        .then(response => {
-          response.body.forEach(element => {
-            this.employees.push(element);
-          });
-          console.log(response.body);
-        });
-    }
-  }
+    // http request to Load employees from database
+    // loadEmployees() {
+    //   this.$http
+    //     .get("https://flaskemployeeapi.herokuapp.com/api/employees")
+    //     .then(response => {
+    //       response.body.forEach(element => {
+    //         this.employees.push(element);
+    //       });
+    //       console.log(response.body);
+    //       this.thestate = this.$store.getters.employees;
+    //     });
+    // },
+    ...mapActions(["increaseCount"])
+  },
 
-  //   computed: {
-  //     employees() {
-  //       return this.$store.getters.employees;
-  //     }
-  //   }
+  //Vue life cycel methods to start when this component is created
+  created() {
+    // this.loadEmployees();
+  },
+
+  computed: {
+    ...mapState(["employees"])
+  }
 };
 </script>
 
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>

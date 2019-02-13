@@ -1,39 +1,55 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import vueResource from "vue-resource";
+import axios from "axios";
+import VueAxios from "vue-axios";
 
 Vue.use(Vuex);
-Vue.use(vueResource);
+Vue.use(VueAxios, axios);
 
 export const store = new Vuex.Store({
   strict: true,
   state: {
-    employee: {},
+    count: 1,
     employees: [
-      //   { id: 1, name: "Banana Skin", price: 20 },
-      //   { id: 2, name: "Shiny Star", price: 50 },
-      //   { id: 3, name: "Green Shells ", price: 60 },
-      //   { id: 4, name: "Blue Shells", price: 70 }
+      // { id: 1, name: "Banana Skin", price: 20 },
+      // { id: 2, name: "Shiny Star", price: 50 },
+      // { id: 3, name: "Green Shells ", price: 60 },
+      // { id: 4, name: "Blue Shells", price: 70 }
     ]
   },
   getters: {
     employees: state => state.employees,
-    employee: state => state.employee
+    count: state => state.count
+  },
+  actions: {
+    loadEmployees({ commit }) {
+      console.log("loademployees");
+
+      axios
+        .get("https://flaskemployeeapi.herokuapp.com/api/employees")
+        .then(response => {
+          console.log(response.data);
+          let employees = response.data;
+          commit("SET_EMPLOYEES", employees);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  },
+  mutations: {
+    SET_EMPLOYEES(state, employees) {
+      state.employees = employees;
+    }
   }
-  //   actions:{
-  //       loadEmployees({commit}){
-  //         this.$http.get('https://flaskemployeeapi.herokuapp.com/api/employees')
-  //         .then(response => response)
-  //         .then(employees =>{
-  //             commit('SET_EMPLOYEES', employees)
-  //         })
-  //       }
-  //   },
-  //   mutations:{
-  //       SET_EMPLOYEES (state,employees){
-  //           state.employees =employees
-  //       }
-  //   }
 });
 
+let employee = {
+  id: 1,
+  firstname: "Freed",
+  lastname: "Jackson",
+  role: "Senior front-end"
+};
+
+store.commit("SET_EMPLOYEES", employee);
 export default store;
