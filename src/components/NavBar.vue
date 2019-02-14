@@ -3,6 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Employee-Manager</a>
       <button
+        id="navBtn"
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
@@ -14,7 +15,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse show" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
             <router-link class="nav-link" to="/">HOME</router-link>
@@ -37,7 +38,8 @@ export default {
   name: "NavBar",
   data() {
     return {};
-  }
+  },
+  methods: {}
 };
 </script>
 

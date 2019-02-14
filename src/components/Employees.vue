@@ -2,14 +2,29 @@
   <div class="container">
     <h1 class="center">Employees page</h1>
     <div class="row">
-      <div class="col-sm-4" v-for="(employee,index) in employees" :key="index">
+      <div
+        class="col-xs-9 col-sm-6 col-lg-4 my-3 px-1 mx-auto"
+        v-for="(employee,index) in employees"
+        :key="index"
+      >
         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="#" alt="Card image cap">
           <div class="card-body">
-            <p class="card-title">Name: {{employee.firstname}} {{employee.lastname}}</p>
-            <p class="card-text">Role: {{employee.role}}</p>
-            <p class="card-text">Department: {{employee.department}}</p>
-            <p class="card-text">id: {{employee._id}}</p>
+            <p class="card-title">
+              <strong>Name:</strong>
+              {{employee.firstname}} {{employee.lastname}}
+            </p>
+            <p class="card-text">
+              <strong>Role:</strong>
+              {{employee.role}}
+            </p>
+            <p class="card-text">
+              <strong>Department:</strong>
+              {{employee.department}}
+            </p>
+            <p class="card-text">
+              <strong>id:</strong>
+              {{employee._id}}
+            </p>
             <router-link
               class="btn btn-primary"
               v-bind:to="{name:
@@ -33,10 +48,7 @@ export default {
   data() {
     return {};
   },
-  methods: {
-
-    
-  },
+  methods: {},
 
   mounted() {
     this.$store.dispatch("loadEmployees");

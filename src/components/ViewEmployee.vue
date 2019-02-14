@@ -2,12 +2,23 @@
   <div class="container">
     <div class="col-md-4 mx-auto">
       <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="#" alt="Card image cap">
         <div class="card-body">
-          <p class="card-title">Name: {{firstname}} {{lastname}}</p>
-          <p class="card-text">Role: {{role}}</p>
-          <p class="card-text">Department: {{department}}</p>
-          <p class="card-text">id: {{employee_id}}</p>
+          <p class="card-title">
+            <strong>Name:</strong>
+            {{firstname}} {{lastname}}
+          </p>
+          <p class="card-text">
+            <strong>Role:</strong>
+            {{role}}
+          </p>
+          <p class="card-text">
+            <strong>Department:</strong>
+            {{department}}
+          </p>
+          <p class="card-text">
+            <strong>id:</strong>
+            {{employee_id}}
+          </p>
           <button v-on:click="deleteEmployee" class="btn btn-danger">Delete Profile</button>
 
           <!-- <router-link class="btn btn-primary" v-bind:to="{name:
@@ -74,7 +85,7 @@ export default {
           .then(response => {
             console.log(response.data);
             alert("Succesfully deleted");
-            this.$router.push('/employees')
+            this.$router.push("/employees");
           });
       }
     }
