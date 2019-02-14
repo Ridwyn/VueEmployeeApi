@@ -33,7 +33,10 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+
+    
+  },
 
   mounted() {
     this.$store.dispatch("loadEmployees");

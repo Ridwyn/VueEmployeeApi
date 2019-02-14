@@ -3,6 +3,7 @@ import Router from "vue-router";
 import HOME from "@/components/HOME";
 import Employees from "@/components/Employees";
 import ViewEmployee from "@/components/ViewEmployee";
+import AddEmployee from "@/components/AddEmployee";
 
 Vue.use(Router);
 
@@ -17,6 +18,11 @@ export default new Router({
       path: "/employees",
       name: "Employees",
       component: Employees
+    },
+    {
+      path: "/add",
+      name: "AddEmployee",
+      component: AddEmployee
     },
     {
       path: "/:employee_id",
