@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="#">Employee-Manager</a>
       <button
         id="navBtn"
@@ -45,19 +45,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
+.navbar {
+  background-color: #7c7c7c;
+  color: #ffff;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.nav-link {
+  color: #080c20 !important;
+  font-weight: 600 !important;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+.nav-link:hover {
+  color: #fdfbfb !important;
+  font-weight: 600 !important;
+  border-bottom: #fdfbfb 2px solid !important;
 }
 </style>

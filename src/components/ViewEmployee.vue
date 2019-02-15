@@ -1,30 +1,32 @@
 <template>
   <div class="container">
-    <div class="col-md-4 mx-auto">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <p class="card-title">
-            <strong>Name:</strong>
-            {{firstname}} {{lastname}}
-          </p>
-          <p class="card-text">
-            <strong>Role:</strong>
-            {{role}}
-          </p>
-          <p class="card-text">
-            <strong>Department:</strong>
-            {{department}}
-          </p>
-          <p class="card-text">
-            <strong>id:</strong>
-            {{employee_id}}
-          </p>
-          <button v-on:click="deleteEmployee" class="btn btn-danger">Delete Profile</button>
+    <div class="row">
+      <div class="col-md-4 mx-auto">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <p class="card-title">
+              <strong>Name:</strong>
+              {{firstname}} {{lastname}}
+            </p>
+            <p class="card-text">
+              <strong>Role:</strong>
+              {{role}}
+            </p>
+            <p class="card-text">
+              <strong>Department:</strong>
+              {{department}}
+            </p>
+            <p class="card-text">
+              <strong>id:</strong>
+              {{employee_id}}
+            </p>
+            <button v-on:click="deleteEmployee" class="btn btn-danger">Delete Profile</button>
 
-          <!-- <router-link class="btn btn-primary" v-bind:to="{name:
-           'EditEmployee', params:{employee_id:employee._id}}">
-               Edit Profile
-          </router-link>-->
+            <router-link
+              class="btn btn-primary"
+              v-bind:to="{name:'EditEmployee', params:{employee_id:employee_id}}"
+            >Edit Profile</router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -35,7 +37,7 @@
 import axios from "axios";
 
 export default {
-  name: "ViewEmployees",
+  name: "ViewEmployee",
   data() {
     return {
       q: this.$route.params.employee_id,

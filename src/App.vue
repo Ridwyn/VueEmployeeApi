@@ -10,7 +10,6 @@ import HOME from "@/components/HOME.vue";
 import NavBar from "@/components/NavBar.vue";
 import Employees from "@/components/Employees.vue";
 
-
 export default {
   name: "App",
   components: {
@@ -20,8 +19,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("loadEmployees");
-  },
-
+  }
 };
 </script>
 
@@ -32,6 +30,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: #fcf8f8;
 }
 </style>

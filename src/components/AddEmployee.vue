@@ -1,35 +1,48 @@
 <template>
   <div class="container">
-    <form id="app" @submit="sendForm">
+    <h2>Add New Profile</h2>
+    <form id="app" @submit="sendForm" class="form mx-auto">
       <!-- <p v-if="errors.length">
     <b>Please correct the following error(s):</b>
     <ul>
       <li v-for="error in errors">{{ error }}</li>
     </ul>
       </p>-->
-      <p>
+      <div class="form-group">
         <label for="firstname">Firstname</label>
-        <input id="firstname" v-model="firstname" type="text" name="firstname">
-      </p>
+        <input
+          id="firstname"
+          v-model="firstname"
+          class="form-control"
+          type="text"
+          placeholder="firstname"
+        >
+      </div>
 
-      <p>
+      <div class="form-group">
         <label for="lastname">Lastname</label>
-        <input id="lastname" v-model="lastname" type="text" name="lastname">
-      </p>
+        <input
+          id="lastname"
+          v-model="lastname"
+          class="form-control"
+          type="text"
+          placeholder="lastname"
+        >
+      </div>
 
-      <p>
+      <div class="form-group">
         <label for="role">Role</label>
-        <input id="role" v-model="role" name="role">
-      </p>
+        <input id="role" v-model="role" class="form-control" placeholder="role">
+      </div>
 
-      <p>
+      <div class="form-group">
         <label for="department">Department</label>
-        <input id="department" v-model="department" name="department">
-      </p>
+        <input id="department" v-model="department" class="form-control" placeholder="department">
+      </div>
 
-      <p>
+      <div class="form-group">
         <input type="submit" value="Submit">
-      </p>
+      </div>
     </form>
   </div>
 </template>
@@ -38,7 +51,7 @@
 import axios from "axios";
 ("use strict");
 
-var qs = require("querystringify");
+let qs = require("querystringify");
 
 export default {
   name: "AddEmployee",
@@ -82,8 +95,8 @@ export default {
       })
         .then(response => {
           console.log(response);
-          this.employee =response;
-          this.$router.push('/employees')
+          this.employee = response;
+          this.$router.push("/employees");
         })
         .catch(function(error) {
           console.log(error);
@@ -96,4 +109,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.form {
+  width: 330px !important;
+}
 </style>
